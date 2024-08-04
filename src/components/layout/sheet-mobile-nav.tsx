@@ -81,7 +81,6 @@ export function SheetMobileNav({
 
                   return (
                     <div key={index} className="flex flex-col space-y-3 pt-6">
-                      <h4 className="font-medium">{item.title}</h4>
                       {activeItems.map((subItem, idx) => (
                         <React.Fragment key={subItem.href + idx}>
                           {subItem.href ? (
