@@ -50,26 +50,20 @@ export function MainNavigationMenu() {
         </NavigationMenuItem> */}
 
         <NavigationMenuItem>
-          <NavigationMenuTrigger>{pages.title}</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-3 lg:w-[600px] ">
               {pages.items?.map((page) => (
                 <ListItem key={page.title} {...page} />
               ))}
             </ul>
-          </NavigationMenuContent>
         </NavigationMenuItem>
 
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>{examples.title}</NavigationMenuTrigger>
-          <NavigationMenuContent>
+        {/* <NavigationMenuItem>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {examples.items?.map((example) => (
                 <ListItem key={example.title} {...example} />
               ))}
             </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
+        </NavigationMenuItem> */}
 
         {links ? (
           <NavigationMenuItem>
@@ -134,9 +128,9 @@ const ListItem: React.FC<MenuItem> = ({
             </Badge>
           ) : null}
         </div>
-        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+        {/* <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
           {description}
-        </p>
+        </p> */}
       </a>
     </li>
   );
