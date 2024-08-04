@@ -10,7 +10,7 @@ import simpleStackForm from "simple-stack-form";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astro-nomy.vercel.app",
+  site: "https://devopen.io",
   integrations: [
     mdx({
       syntaxHighlight: "shiki",
@@ -29,7 +29,4 @@ export default defineConfig({
     simpleStackForm(),
   ],
   output: "hybrid",
-  adapter: vercel({
-    analytics: true,
-  }),
 });
