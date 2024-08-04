@@ -16,27 +16,28 @@ import HeaderSection from "./header-section.astro";
 
       <div class="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((feature) => (
-          <div class="group relative overflow-hidden rounded-2xl border bg-background p-5 md:p-8">
+          <div class="group relative overflow-hidden rounded-2xl border bg-background p-5 md:p-8" style="height: 350px;">
             <div
               aria-hidden="true"
               class="absolute inset-0 aspect-video -translate-y-1/2 rounded-full border bg-gradient-to-b from-purple-500/80 to-white opacity-25 blur-2xl duration-300 group-hover:-translate-y-1/4 dark:from-white dark:to-white dark:opacity-5 dark:group-hover:opacity-10"
             />
-            <div class="relative">
-              <div class="w-full h-12 flex items-center justify-start gap-x-4">
-                <div class="relative flex w-12 h-12 rounded-2xl border border-border shadow-sm">
-                  <img
-                    src={feature.logo}
-                    alt={feature.title}
-                    class="w-full h-full object-cover rounded-2xl"
-                  />
+            <div class="relative h-full flex flex-col justify-between">
+              <div>
+                <div class="w-full h-12 flex items-center justify-start gap-x-4">
+                  <div class="relative flex w-12 h-12 rounded-2xl border border-border shadow-sm">
+                    <img
+                      src={feature.logo}
+                      alt={feature.title}
+                      class="w-full h-full object-cover rounded-2xl"
+                    />
+                  </div>
+                  <span class="select-none">{feature.title}</span>
                 </div>
-                <span class="select-none">{feature.title}</span>
+                <p class="mt-6 text-muted-foreground overflow-hidden overflow-ellipsis">
+                  {feature.description}
+                </p>
               </div>
-              <p class="mt-6 pb-6 text-muted-foreground">
-                {feature.description}
-              </p>
-
-              <div class="-mb-5 flex gap-3 border-t border-muted py-4 md:-mb-7">
+              <div class="flex gap-3 border-t border-muted py-4 mt-auto">
                 <Button
                   variant="secondary"
                   size="sm"
