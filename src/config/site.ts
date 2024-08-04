@@ -5,7 +5,6 @@ export const siteConfig: SiteConfig = {
   description:
     "Transforming tech through transparency. Open source solutions for a brighter future.",
   url: "https://devopen.io",
-  ogImage: "https://astro-nomy.vercel.app/og.jpg",
   links: {
     twitter: "https://x.com/devopen_io",
     github: "https://github.com/DevOpen-io",
