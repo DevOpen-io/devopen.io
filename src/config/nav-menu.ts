@@ -32,7 +32,7 @@ export const navMenuConfig: NavMenuConfig = {
         //   image: "/images/examples/pricing.jpg",
         // },
         {
-          title: "Static Blog",
+          title: "Blog",
           href: "/blog",
           description: "A Markdown/MDX blog built using Content Collections.",
           image: "/images/examples/static-blog.jpg",
@@ -58,7 +58,7 @@ export const navMenuConfig: NavMenuConfig = {
       title: "Examples",
       items: [
         // {
-        //   title: "Static Blog",
+        //   title: "Blog",
         //   href: "/blog",
         //   description: "A Markdown/MDX blog built using Content Collections.",
         //   image: "/images/examples/static-blog.jpg",
