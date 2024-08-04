@@ -73,7 +73,7 @@ export const docsConfig: DocsConfig = {
         //   disabled: true,
         // },
         {
-          title: "Static Blog",
+          title: "Blog",
           href: "/docs/in-progress",
           disabled: true,
         },

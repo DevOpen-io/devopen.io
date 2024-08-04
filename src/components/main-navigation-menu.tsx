@@ -1,17 +1,14 @@
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
-import { Icons } from "@/icons";
+import { Badge } from "@/components/ui/badge";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
+  navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu";
-import { Badge } from "@/components/ui/badge";
 import { navMenuConfig } from "@/config/nav-menu";
+import { cn } from "@/lib/utils";
 import type { MenuItem } from "@/types";
 
 const links = navMenuConfig.links;
@@ -32,7 +29,7 @@ export function MainNavigationMenu() {
                   href="/"
                 >
                   <Icons.logo className="size-8" />
-                  <div className="mb-2 mt-3 text-lg font-medium">Astronomy</div>
+                  <div className="mb-2 mt-3 text-lg font-medium">DevOpen</div>
                   <p className="text-sm leading-tight text-muted-foreground">
                     Pages and examples apps built with Astro v4.5,
                     shadcn/ui & react js.
