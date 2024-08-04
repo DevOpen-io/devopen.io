@@ -55,14 +55,14 @@ export const infos: InfoLdg[] = [
 export const features = [
   {
     title: "RescuPaws",
-    logo: "/images/examples/rescupaws.png",
+    logo: "src/icons/rescupaws.svg",
     description:
       "A dedicated platform for pet adoption, connecting animals in need with loving homes. Tinder for adopting pets!",
     link: "/recupaws",
   },
   {
     title: "LegalLens",
-    logo: "/images/examples/legallens.png",
+    logo: "src/icons/legallens.svg",
     description:
       "An AI-powered app focused on privacy, helping individuals and organizations understand and manage their digital privacy.",
     link: "/legallens",
