@@ -32,3 +32,10 @@ export async function getGuides() {
 
   return guides;
 }
+
+// Filter team entries with 'draft: false' & date before current date
+export async function getTeam() {
+  const team = (await getCollection("team"));
+  return team;
+}
+

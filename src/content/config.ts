@@ -56,4 +56,19 @@ const releases = defineCollection({
     }),
 });
 
-export const collections = { blog, docs, guides, releases };
+const team = defineCollection({
+  schema: z.object({
+    draft: z.boolean(),
+    name: z.string(),
+    title: z.string(),
+    avatar: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+    publishDate: z.string().transform(str => new Date(str)),
+  }),
+});
+
+
+
+export const collections = { blog, docs, guides, releases, team, };
