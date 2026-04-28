@@ -1,152 +1,213 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400..900&display=swap');
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-background-200: hsl(var(--background-200));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsla(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --background-200: 0 0% 98%;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 
-    --foreground: 0 0% 9%;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading: "CalSans Semibold", ui-sans-serif, system-ui, sans-serif;
 
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 40%;
+  --spacing-18: 4.5rem;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
 
-    --border: 0 0% 92%;
-    --input: 0 0% 92%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
-
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 0 0% 92%;
-    --secondary-foreground: 0 0% 9%;
-
-    --accent: 0, 0%, 0%, 0.06;
-    --accent-foreground: 0 0% 9%;
-
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 40% 98%;
-
-    --ring: 215 20.2% 65.1%;
-
-    --radius: 0.5rem;
-    --ds-shadow-border: 0 0 0 1px rgba(0, 0, 0, .08);
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
   }
 
-  .dark {
-    --background: 0 0% 4%;
-    --background-200: 0 170% 0%;
-
-    --foreground: 0 0% 93%;
-
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 80%;
-
-    --accent: 0, 0%, 100%, .09;
-    --accent-foreground: 0 0% 93%;
-
-    --popover: 0 0% 4%;
-    --popover-foreground: 0 0% 93%;
-
-    --border: 0 0% 12%;
-    --input: 0 0% 12%;
-
-    --card: 0 0% 4%;
-    --card-foreground: 0 0% 93%;
-
-    --primary: 0 0% 93%;
-    --primary-foreground: 222.2 47.4% 1.2%;
-
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 93%;
-
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 93%;
-
-    --ring: 0 0% 12%;
-
-    --radius: 0.5rem;
-    --ds-shadow-border: 0 0 0 1px hsla(0, 0%, 100%, .145);
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
   }
 }
 
-@layer base {
-  @font-face {
-    font-family: 'CalSans Semibold';
-    src: url('/fonts/calsans-semibold.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  width: 100%;
+
+  @media (min-width: 1400px) {
+    max-width: 1400px;
   }
+}
 
-  * {
-    @apply border-border;
-  }
+:root {
+  --background: 0 0% 100%;
+  --background-200: 0 0% 98%;
 
-  /* If you want a custom scrollbar - By @diomed */
-  /* * {
-    @apply border-border;
-    --sb-track-color: #ffffff;
-    --sb-thumb-color: #e2e3f1;
-    --sb-size: 10px;
+  --foreground: 0 0% 9%;
 
-    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
-  }
+  --muted: 0 0% 92%;
+  --muted-foreground: 0 0% 40%;
 
-  ::-webkit-scrollbar {
-    width: var(--sb-size)
-  }
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 9%;
 
-  ::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-    border-radius: 10px;
-  }
+  --border: 0 0% 92%;
+  --input: 0 0% 92%;
 
-  ::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 10px;
-  } */
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 9%;
 
+  --primary: 0 0% 9%;
+  --primary-foreground: 0 0% 98%;
+
+  --secondary: 0 0% 92%;
+  --secondary-foreground: 0 0% 9%;
+
+  --accent: 0, 0%, 0%, 0.06;
+  --accent-foreground: 0 0% 9%;
+
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 210 40% 98%;
+
+  --ring: 215 20.2% 65.1%;
+
+  --radius: 0.5rem;
+  --ds-shadow-border: 0 0 0 1px rgba(0, 0, 0, .08);
+}
+
+.dark {
+  --background: 0 0% 4%;
+  --background-200: 0 170% 0%;
+
+  --foreground: 0 0% 93%;
+
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 80%;
+
+  --accent: 0, 0%, 100%, .09;
+  --accent-foreground: 0 0% 93%;
+
+  --popover: 0 0% 4%;
+  --popover-foreground: 0 0% 93%;
+
+  --border: 0 0% 12%;
+  --input: 0 0% 12%;
+
+  --card: 0 0% 4%;
+  --card-foreground: 0 0% 93%;
+
+  --primary: 0 0% 93%;
+  --primary-foreground: 222.2 47.4% 1.2%;
+
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 93%;
+
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 0 0% 93%;
+
+  --ring: 0 0% 12%;
+
+  --radius: 0.5rem;
+  --ds-shadow-border: 0 0 0 1px hsla(0, 0%, 100%, .145);
+}
+
+@font-face {
+  font-family: 'CalSans Semibold';
+  src: url('/fonts/calsans-semibold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-padding-top: 4rem;
+}
+
+@media (min-width: 1024px) {
   html {
-    /* scroll-padding-top: 4rem; */
-    @apply scroll-pt-16 lg:scroll-pt-0;
+    scroll-padding-top: 0;
   }
+}
 
-  body {
-    @apply bg-background text-foreground font-sans;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
 
-  /* Documentation part */
+/* Documentation part */
+.docs-grid-cols-2 {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
   .docs-grid-cols-2 {
-    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  .callout>* {
-    @apply my-0 !important;
+@media (min-width: 768px) {
+  .docs-grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+}
 
-  .font-icon-callout {
-    font-family: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+@media (min-width: 1024px) {
+  .docs-grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  /* MdxComponent: For <code></code> with no parent <pre></pre> */
-  :not(pre)>code {
-    @apply relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm bg-background text-foreground;
-  }
+.callout>* {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.font-icon-callout {
+  font-family: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}
+
+/* MdxComponent: For <code></code> with no parent <pre></pre> */
+:not(pre)>code {
+  position: relative;
+  border-radius: var(--radius-sm);
+  border-width: 1px;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875rem;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
 }
 
 .text-gradient_indigo-purple {
   background: linear-gradient(90deg, #6366f1 0%, rgba(168 85 247 / 0.9) 100%);
-  /* background: linear-gradient(83.21deg,#3245ff 0%,#bc52ee 100%); */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -186,5 +247,27 @@
 }
 
 .anime-grid {
-  @apply grid content-start [--column-gap:12px] sm:[--column-gap:14px] md:[--column-gap:18px] gap-x-[--column-gap] gap-y-8 md:gap-y-10 [--min-column-width:150px] [--max-column-count:7] [--total-gap-width:calc((var(--max-column-count)-1)*var(--column-gap))] [--max-column-width:calc((100%-var(--total-gap-width))/var(--max-column-count))] grid-cols-[repeat(auto-fill,minmax(max(var(--min-column-width),var(--max-column-width)),1fr))]
+  display: grid;
+  align-content: start;
+  --column-gap: 12px;
+  --min-column-width: 150px;
+  --max-column-count: 7;
+  --total-gap-width: calc((var(--max-column-count) - 1) * var(--column-gap));
+  --max-column-width: calc((100% - var(--total-gap-width)) / var(--max-column-count));
+  column-gap: var(--column-gap);
+  row-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(max(var(--min-column-width), var(--max-column-width)), 1fr));
+}
+
+@media (min-width: 640px) {
+  .anime-grid {
+    --column-gap: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .anime-grid {
+    --column-gap: 18px;
+    row-gap: 2.5rem;
+  }
 }
