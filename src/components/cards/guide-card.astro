@@ -4,7 +4,7 @@ import type { CollectionEntry } from "astro:content";
 
 type Props = CollectionEntry<"guides">;
 
-const slug = Astro.props.slug;
+const slug = Astro.props.id.replace(/\.(md|mdx)$/, '');
 const guide = Astro.props.data;
 ---
 

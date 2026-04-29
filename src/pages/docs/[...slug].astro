@@ -9,12 +9,12 @@ import { docsConfig } from "@/config/docs";
 import DocsLayout from "@/layouts/docs-layout.astro";
 import { getTableOfContents } from "@/lib/toc";
 import { Icon } from "astro-icon/components";
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
   const docs = await getCollection("docs");
   return docs.map((doc) => ({
-    params: { slug: doc.slug },
+    params: { slug: doc.id.replace(/\.(md|mdx)$/, '') },
     props: doc,
   }));
 }
@@ -23,9 +23,9 @@ type Props = CollectionEntry<"docs">;
 
 const doc = Astro.props;
 const slug = Astro.params.slug;
-const toc = await getTableOfContents(doc.body);
+const toc = await getTableOfContents(doc.body ?? '');
 
-const { Content } = await doc.render();
+const { Content } = await render(doc);
 
 if (!slug || !doc) {
   return new Response(null, {
@@ -65,7 +65,7 @@ if (!slug || !doc) {
           <Content components={MdxComponents} />
 
           <hr class="my-4 md:my-6" />
-          <DocsPager slug={doc.slug} />
+          <DocsPager slug={doc.id.replace(/\.(md|mdx)$/, '')} />
         </div>
         <div class="hidden text-sm xl:block">
           <div

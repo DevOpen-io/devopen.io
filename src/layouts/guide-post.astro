@@ -10,9 +10,9 @@ import DocsLayout from "./docs-layout.astro";
 type Props = CollectionEntry<"guides">;
 
 const guide = Astro.props;
-const slug = guide.slug;
+const slug = guide.id.replace(/\.(md|mdx)$/, '');
 const { title, description, pubDate } = guide.data;
-const toc = await getTableOfContents(guide.body);
+const toc = await getTableOfContents(guide.body ?? '');
 ---
 
 <DocsLayout title={title} description={description}>
