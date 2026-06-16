@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevOpen — We build open. We build bold.</title>
+  <meta name="description" content="A three-person, open-source software team based in Istanbul. We ship free, well-crafted tools across the Flutter / Dart ecosystem. No algorithms, no tracking." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- Backgrounds + cursor + fx layers -->
+  <canvas id="bg-canvas"></canvas>
+  <canvas id="confetti"></canvas>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar">
+    <a href="#hero" class="brand" aria-label="DevOpen home">
+      <img class="brand-logo" id="brand-mark" src="./logo.jpeg" alt="DevOpen logo" />
+      Dev<span>Open</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about" data-en="About" data-tr="Hakkımızda">About</a></li>
+      <li><a href="#team" data-en="Team" data-tr="Ekip">Team</a></li>
+      <li><a href="#projects" data-en="Projects" data-tr="Projeler">Projects</a></li>
+      <li><a href="#contact" data-en="Contact" data-tr="İletişim">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+        <span class="seg on" data-lang-seg="en">EN</span>
+        <span class="seg" data-lang-seg="tr">TR</span>
+      </button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="#projects" class="nav-cta magnetic pop" data-en="Projects →" data-tr="Projeler →">Projects →</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#about" data-en="About" data-tr="Hakkımızda">About</a>
+    <a href="#team" data-en="Team" data-tr="Ekip">Team</a>
+    <a href="#projects" data-en="Projects" data-tr="Projeler">Projects</a>
+    <a href="#contact" data-en="Contact" data-tr="İletişim">Contact</a>
+  </div>
+
+  <main class="page">
+    <!-- ===================== HERO ===================== -->
+    <header class="hero" id="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-inner">
+        <div class="hero-left">
+          <div class="hero-kicker magnetic">
+            <img src="./logo.jpeg" alt="" aria-hidden="true" />
+            <span class="k-name">DEVOPEN</span>
+            <span class="k-sep">//</span>
+            <span data-en="open-source collective" data-tr="açık kaynak kolektifi">open-source collective</span>
+          </div>
+
+          <h1 class="hero-head" data-en="We build in the <span class='hl'>open</span>." data-tr="<span class='hl'>Açık</span> inşa ediyoruz.">We build in the <span class="hl">open</span>.</h1>
+
+          <p class="hero-sub" data-en="An Istanbul software collective making <span class='em'>free, well-crafted tools</span> for the Flutter ecosystem — no algorithms, no tracking, no lock-in." data-tr="Flutter ekosistemi için <span class='em'>özgür ve özenle yapılmış araçlar</span> üreten İstanbul merkezli bir yazılım kolektifi — algoritma yok, takip yok, kilitlenme yok.">An Istanbul software collective making <span class="em">free, well-crafted tools</span> for the Flutter ecosystem — no algorithms, no tracking, no lock-in.</p>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary magnetic pop" data-en="Explore our work" data-tr="Projelerimizi Keşfet">Explore our work
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="https://github.com/DevOpen-io" target="_blank" rel="noopener" class="btn btn-ghost magnetic pop">GitHub Org</a>
+          </div>
+
+          <div class="hero-meta">
+            <span><b>9</b> <span data-en="repos" data-tr="repo">repos</span></span><span class="sep"></span>
+            <span><b>31+</b> <span data-en="releases" data-tr="release">releases</span></span><span class="sep"></span>
+            <span><b>6</b> <span data-en="platforms" data-tr="platform">platforms</span></span><span class="sep"></span>
+            <span><b>MIT</b> <span data-en="licensed" data-tr="lisanslı">licensed</span></span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <img class="hero-watermark" src="./logo.jpeg" alt="" aria-hidden="true" />
+          <div class="terminal" id="terminal">
+            <div class="terminal-bar">
+              <div class="dots"><span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span></div>
+              <span class="ttitle">devopen — zsh</span>
+            </div>
+            <div class="terminal-body" id="terminal-body"></div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+        <span data-en="SCROLL" data-tr="KAYDIR">SCROLL</span>
+        <span class="arrow"></span>
+      </a>
+    </header>
+
+    <!-- ===================== MARQUEE 1 ===================== -->
+    <div class="marquee tilt" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item"><span data-en="OPEN SOURCE" data-tr="AÇIK KAYNAK">OPEN SOURCE</span> <span class="star">✷</span> FLUTTER <span class="star">✷</span> <span class="marquee-item ghost">DART</span> <span class="star">✷</span> ISTANBUL <span class="star">✷</span> MIT <span class="star">✷</span> BUILD BOLD <span class="star">✷</span></span>
+        <span class="marquee-item"><span data-en="OPEN SOURCE" data-tr="AÇIK KAYNAK">OPEN SOURCE</span> <span class="star">✷</span> FLUTTER <span class="star">✷</span> <span class="marquee-item ghost">DART</span> <span class="star">✷</span> ISTANBUL <span class="star">✷</span> MIT <span class="star">✷</span> BUILD BOLD <span class="star">✷</span></span>
+      </div>
+    </div>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-text reveal">
+          <span class="eyebrow" data-en="About" data-tr="Hakkımızda">About</span>
+          <h2 class="section-title" data-en="Open by<br>default." data-tr="Varsayılan<br>olarak açık.">Open by<br>default.</h2>
+          <p data-en="DevOpen is an Istanbul-based, open-source software collective. We build in the open and ship under the <strong>MIT license</strong> — no algorithms deciding what you see, no tracking, no lock-in. Code you can read, fork and trust." data-tr="DevOpen, İstanbul merkezli açık kaynak bir yazılım kolektifidir. Her şeyi açık geliştirir ve <strong>MIT lisansı</strong> altında yayınlarız — ne gördüğüne karar veren algoritmalar yok, takip yok, kilitlenme yok. Okuyabileceğin, fork'layabileceğin ve güvenebileceğin kod.">DevOpen is an Istanbul-based, open-source software collective. We build in the open and ship under the <strong>MIT license</strong> — no algorithms deciding what you see, no tracking, no lock-in. Code you can read, fork and trust.</p>
+          <p data-en="Our home is the <strong>Flutter / Dart</strong> ecosystem: one codebase, six platforms, from mobile to desktop. We obsess over craft — fast, accessible, thoughtfully designed apps that hand control back to the people using them." data-tr="Evimiz <strong>Flutter / Dart</strong> ekosistemi: tek kod tabanı, altı platform, mobilden masaüstüne. İşçiliğe takıntılıyız — hızlı, erişilebilir ve özenle tasarlanmış, kontrolü tekrar kullanıcıya veren uygulamalar.">Our home is the <strong>Flutter / Dart</strong> ecosystem: one codebase, six platforms, from mobile to desktop. We obsess over craft — fast, accessible, thoughtfully designed apps that hand control back to the people using them.</p>
+          <div class="about-pills">
+            <span class="pill" data-en="Open Source" data-tr="Açık Kaynak">Open Source</span>
+            <span class="pill">MIT Licensed</span>
+            <span class="pill">Flutter / Dart</span>
+            <span class="pill" data-en="Istanbul" data-tr="İstanbul">Istanbul</span>
+          </div>
+        </div>
+
+        <div class="stat-grid reveal" data-delay="120">
+          <div class="stat-card pop"><div class="stat-num" data-count="9">0</div><div class="stat-label" data-en="Public Repos" data-tr="Public Repo">Public Repos</div></div>
+          <div class="stat-card pop"><div class="stat-num" data-count="3">0</div><div class="stat-label" data-en="Makers" data-tr="Geliştirici">Makers</div></div>
+          <div class="stat-card pop"><div class="stat-num" data-count="31" data-suffix="+">0</div><div class="stat-label" data-en="Releases" data-tr="Release">Releases</div></div>
+          <div class="stat-card pop"><div class="stat-num" data-count="6">0</div><div class="stat-label" data-en="Platforms" data-tr="Platform">Platforms</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TEAM ===================== -->
+    <section id="team">
+      <div class="container">
+        <div class="reveal" style="max-width:640px">
+          <span class="eyebrow" data-en="Team" data-tr="Ekip">Team</span>
+          <h2 class="section-title" data-en="Three founders,<br>three disciplines." data-tr="Üç kurucu,<br>üç disiplin.">Three founders,<br>three disciplines.</h2>
+          <p class="section-lead" data-en="Mobile, design and web — three skill sets that complete each other." data-tr="Mobil, tasarım ve web — birbirini tamamlayan üç uzmanlık alanı.">Mobile, design and web — three skill sets that complete each other.</p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Eren -->
+          <article class="team-card reveal">
+            <div class="team-head">
+              <img class="avatar" src="https://avatars.githubusercontent.com/u/70534390?v=4" alt="Eren Gun" loading="lazy" />
+              <div>
+                <div class="team-name">Eren Gun</div>
+                <div class="team-role" data-en="Co-founder · Mobile &amp; Backend" data-tr="Kurucu Ortak · Mobil &amp; Backend">Co-founder · Mobile &amp; Backend</div>
+              </div>
+            </div>
+            <p class="team-section-label" data-en="Education" data-tr="Eğitim">Education</p>
+            <ul class="team-edu"><li data-en="École 42 — Computer Science" data-tr="École 42 — Bilgisayar Bilimleri">École 42 — Computer Science</li></ul>
+            <p class="team-section-label" data-en="Languages &amp; Focus" data-tr="Diller &amp; Alanlar">Languages &amp; Focus</p>
+            <div class="tag-row"><span class="tag">Dart</span><span class="tag">Go</span><span class="tag">JavaScript</span><span class="tag">C/C++</span></div>
+            <p class="team-section-label" data-en="Tech Stack" data-tr="Tech Stack">Tech Stack</p>
+            <div class="tech-icons">
+              <img src="https://cdn.simpleicons.org/flutter" alt="Flutter" title="Flutter" />
+              <img src="https://cdn.simpleicons.org/dart" alt="Dart" title="Dart" />
+              <img src="https://cdn.simpleicons.org/go" alt="Go" title="Go" />
+              <img src="https://cdn.simpleicons.org/nodedotjs" alt="Node.js" title="Node.js" />
+              <span class="text-badge">Riverpod</span>
+              <span class="text-badge">Hive</span>
+            </div>
+            <div class="team-links">
+              <a class="icon-link pop" href="https://github.com/erengun" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+              <a class="icon-link pop" href="https://erengun.dev" target="_blank" rel="noopener" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg></a>
+              <a class="icon-link pop" href="https://linkedin.com/in/erengun" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Sena -->
+          <article class="team-card reveal" data-delay="100">
+            <div class="team-head">
+              <img class="avatar" src="https://avatars.githubusercontent.com/u/93337596?v=4" alt="Zeynep Sena Doğan" loading="lazy" />
+              <div>
+                <div class="team-name">Z. Sena Doğan</div>
+                <div class="team-role" data-en="Co-founder · UI/UX &amp; Mobile" data-tr="Kurucu Ortak · UI/UX &amp; Mobil">Co-founder · UI/UX &amp; Mobile</div>
+              </div>
+            </div>
+            <p class="team-section-label" data-en="Education" data-tr="Eğitim">Education</p>
+            <ul class="team-edu">
+              <li data-en="Yıldız Technical Univ. — Physics" data-tr="Yıldız Teknik Üniv. — Fizik">Yıldız Technical Univ. — Physics</li>
+              <li data-en="École 42 — C/C++" data-tr="École 42 — C/C++">École 42 — C/C++</li>
+              <li data-en="Anadolu Univ. — Visual Communication Design" data-tr="Anadolu Üniv. — Görsel İletişim Tasarımı">Anadolu Univ. — Visual Communication Design</li>
+              <li data-en="QWorld — Quantum (QBronze)" data-tr="QWorld — Kuantum (QBronze)">QWorld — Quantum (QBronze)</li>
+            </ul>
+            <p class="team-section-label" data-en="Languages &amp; Focus" data-tr="Diller &amp; Alanlar">Languages &amp; Focus</p>
+            <div class="tag-row"><span class="tag">Dart</span><span class="tag">C/C++</span><span class="tag">Swift</span><span class="tag">UI/UX</span></div>
+            <p class="team-section-label" data-en="Tech Stack" data-tr="Tech Stack">Tech Stack</p>
+            <div class="tech-icons">
+              <img src="https://cdn.simpleicons.org/flutter" alt="Flutter" title="Flutter" />
+              <img src="https://cdn.simpleicons.org/qt" alt="Qt 6" title="Qt 6" />
+              <img src="https://cdn.simpleicons.org/swift" alt="SwiftUI" title="SwiftUI" />
+              <img src="https://cdn.simpleicons.org/figma" alt="Figma" title="Figma" />
+            </div>
+            <div class="team-links">
+              <a class="icon-link pop" href="https://github.com/sena-dogan" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+              <a class="icon-link pop" href="https://linkedin.com/in/sena-dogan-dev" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Talha -->
+          <article class="team-card reveal" data-delay="200">
+            <div class="team-head">
+              <img class="avatar" src="https://avatars.githubusercontent.com/u/56833887?v=4" alt="Talha Aksoy" loading="lazy" />
+              <div>
+                <div class="team-name">Talha Aksoy</div>
+                <div class="team-role" data-en="Co-founder · Front-End" data-tr="Kurucu Ortak · Front-End">Co-founder · Front-End</div>
+              </div>
+            </div>
+            <p class="team-section-label" data-en="Education" data-tr="Eğitim">Education</p>
+            <ul class="team-edu"><li>École 42 İstanbul</li></ul>
+            <p class="team-section-label" data-en="Languages &amp; Focus" data-tr="Diller &amp; Alanlar">Languages &amp; Focus</p>
+            <div class="tag-row"><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">C/C++</span><span class="tag" data-en="Web" data-tr="Web">Web</span></div>
+            <p class="team-section-label" data-en="Tech Stack" data-tr="Tech Stack">Tech Stack</p>
+            <div class="tech-icons">
+              <img src="https://cdn.simpleicons.org/react" alt="React" title="React" />
+              <img src="https://cdn.simpleicons.org/typescript" alt="TypeScript" title="TypeScript" />
+              <img src="https://cdn.simpleicons.org/html5" alt="HTML5" title="HTML5" />
+              <img src="https://cdn.simpleicons.org/css" alt="CSS" title="CSS" />
+            </div>
+            <div class="team-links">
+              <a class="icon-link pop" href="https://github.com/talhaaksoy" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+              <a class="icon-link pop" href="https://42saksoy.netlify.app" target="_blank" rel="noopener" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="projects">
+      <div class="container">
+        <div class="reveal" style="max-width:640px">
+          <span class="eyebrow" data-en="Projects" data-tr="Projeler">Projects</span>
+          <h2 class="section-title" data-en="Things we use and love." data-tr="Kullandığımız, sevdiğimiz şeyler.">Things we use and love.</h2>
+          <p class="section-lead" data-en="Open-source apps we built for real problems — and actually ship." data-tr="Gerçek problemler için yazdığımız, açık kaynak ve üretimde olan uygulamalar.">Open-source apps we built for real problems — and actually ship.</p>
+        </div>
+
+        <div class="projects-feature">
+          <!-- Dondurma -->
+          <article class="project-card reveal pop">
+            <div class="bar"></div>
+            <div class="project-top">
+              <div class="project-name">Dondurma RSS Reader</div>
+              <span class="project-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>4</span>
+            </div>
+            <p class="project-desc" data-en="An open-source RSS/Atom news reader built with Flutter and Material 3. No algorithm, no tracking — just your own feeds." data-tr="Flutter ve Material 3 ile geliştirilmiş açık kaynak RSS/Atom haber okuyucu. Algoritma yok, takip yok — sadece senin akışların.">An open-source RSS/Atom news reader built with Flutter and Material 3. No algorithm, no tracking — just your own feeds.</p>
+            <div class="badge-row">
+              <span class="badge">Android</span><span class="badge">iOS</span><span class="badge">Web</span>
+              <span class="badge">Windows</span><span class="badge">macOS</span><span class="badge">Linux</span>
+            </div>
+            <div class="badge-row">
+              <span class="badge feature" data-en="9 Themes (Catppuccin)" data-tr="9 Tema (Catppuccin)">9 Themes (Catppuccin)</span>
+              <span class="badge feature" data-en="OPML Import/Export" data-tr="OPML İçe/Dışa Aktarım">OPML Import/Export</span>
+              <span class="badge feature" data-en="Ad Blocker" data-tr="Reklam Engelleyici">Ad Blocker</span>
+              <span class="badge feature" data-en="Offline Cache" data-tr="Çevrimdışı Önbellek">Offline Cache</span>
+              <span class="badge feature">EN / TR</span>
+            </div>
+            <div class="project-stack">
+              <img src="https://cdn.simpleicons.org/flutter" alt="Flutter" title="Flutter 3.11+" />
+              <img src="https://cdn.simpleicons.org/dart" alt="Dart" title="Dart" />
+              <img src="https://cdn.simpleicons.org/android" alt="Android" title="Android" />
+              <img src="https://cdn.simpleicons.org/apple" alt="Apple" title="iOS / macOS" />
+              <img src="https://cdn.simpleicons.org/linux" alt="Linux" title="Linux" />
+            </div>
+            <div class="project-actions">
+              <a class="link-btn solid magnetic" href="https://github.com/DevOpen-io/dondurma-rss-reader" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg><span data-en="Repo · 6 releases" data-tr="Repo · 6 release">Repo · 6 releases</span></a>
+              <span class="link-btn" style="cursor:default">v1.0.1 · 30 May 2026</span>
+            </div>
+          </article>
+
+          <!-- SubZilla -->
+          <article class="project-card reveal pop" data-delay="120">
+            <div class="bar"></div>
+            <div class="project-top">
+              <div class="project-name">SubZilla</div>
+              <span class="project-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>3 · ⑂ 2</span>
+            </div>
+            <p class="project-desc" data-en="A Flutter app to track monthly subscriptions and keep your budget under control. Your data stays on your device." data-tr="Aylık abonelikleri takip etmek ve bütçeyi kontrol altında tutmak için tasarlanmış Flutter uygulaması. Verilerin cihazda kalır.">A Flutter app to track monthly subscriptions and keep your budget under control. Your data stays on your device.</p>
+            <div class="badge-row">
+              <span class="badge feature" data-en="Interactive Charts" data-tr="İnteraktif Grafikler">Interactive Charts</span>
+              <span class="badge feature" data-en="Calendar View" data-tr="Takvim Görünümü">Calendar View</span>
+              <span class="badge feature" data-en="Smart Reminders" data-tr="Akıllı Bildirimler">Smart Reminders</span>
+              <span class="badge feature" data-en="Local Database" data-tr="Yerel Veritabanı">Local Database</span>
+              <span class="badge feature">Dark Mode</span>
+            </div>
+            <div class="project-stack">
+              <img src="https://cdn.simpleicons.org/flutter" alt="Flutter" title="Flutter" />
+              <img src="https://cdn.simpleicons.org/dart" alt="Dart" title="Dart" />
+              <img src="https://cdn.simpleicons.org/sqlite" alt="SQLite" title="sqflite" />
+              <img src="https://cdn.simpleicons.org/fastlane" alt="Fastlane" title="Fastlane" />
+            </div>
+            <div class="project-actions">
+              <a class="link-btn solid magnetic" href="https://github.com/DevOpen-io/SubZilla" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg><span data-en="Repo · 31 releases" data-tr="Repo · 31 release">Repo · 31 releases</span></a>
+              <a class="link-btn magnetic" href="https://subzilla.netlify.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14L21 3"/></svg><span data-en="Live Demo" data-tr="Canlı Demo">Live Demo</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects-minor">
+          <a class="minor-card reveal" href="https://github.com/DevOpen-io" target="_blank" rel="noopener">
+            <div class="minor-name">DumbPosting</div>
+            <p class="minor-desc" data-en="A platform where employers get rated, with an AI-assisted résumé builder." data-tr="İşverenlerin değerlendirildiği, AI destekli CV oluşturucu içeren platform.">A platform where employers get rated, with an AI-assisted résumé builder.</p>
+            <span class="minor-lang" data-en="● Platform" data-tr="● Platform">● Platform</span>
+          </a>
+          <a class="minor-card reveal" data-delay="80" href="https://github.com/DevOpen-io" target="_blank" rel="noopener">
+            <div class="minor-name">naisho-secure-sms</div>
+            <p class="minor-desc" data-en="An end-to-end (E2E) encrypted SMS client built with Flutter." data-tr="Flutter ile uçtan uca (E2E) şifreli SMS istemcisi.">An end-to-end (E2E) encrypted SMS client built with Flutter.</p>
+            <span class="minor-lang">● Dart / Flutter</span>
+          </a>
+          <a class="minor-card reveal" data-delay="160" href="https://github.com/DevOpen-io" target="_blank" rel="noopener">
+            <div class="minor-name">PlaceholderAnimation</div>
+            <p class="minor-desc" data-en="A lightweight TypeScript library for input placeholder animations." data-tr="Input placeholder animasyonları için hafif bir TypeScript kütüphanesi.">A lightweight TypeScript library for input placeholder animations.</p>
+            <span class="minor-lang">● TypeScript</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MARQUEE 2 ===================== -->
+    <div class="marquee tilt rev" aria-hidden="true" style="transform:rotate(1.4deg)">
+      <div class="marquee-track">
+        <span class="marquee-item"><span class="marquee-item ghost">NO TRACKING</span> <span class="star">✷</span> <span data-en="MADE IN ISTANBUL" data-tr="İSTANBUL'DA YAPILDI">MADE IN ISTANBUL</span> <span class="star">✷</span> ÉCOLE 42 <span class="star">✷</span> <span class="marquee-item ghost">WE BUILD OPEN</span> <span class="star">✷</span> </span>
+        <span class="marquee-item"><span class="marquee-item ghost">NO TRACKING</span> <span class="star">✷</span> <span data-en="MADE IN ISTANBUL" data-tr="İSTANBUL'DA YAPILDI">MADE IN ISTANBUL</span> <span class="star">✷</span> ÉCOLE 42 <span class="star">✷</span> <span class="marquee-item ghost">WE BUILD OPEN</span> <span class="star">✷</span> </span>
+      </div>
+    </div>
+
+    <!-- ===================== TECH STACK ===================== -->
+    <section id="stack">
+      <div class="tech-bg-shape"></div>
+      <div class="tech-bg-shape two"></div>
+      <div class="container">
+        <div class="reveal" style="max-width:640px">
+          <span class="eyebrow" data-en="Tech Stack" data-tr="Tech Stack">Tech Stack</span>
+          <h2 class="section-title" data-en="Tools we build with." data-tr="Birlikte çalıştığımız araçlar.">Tools we build with.</h2>
+          <p class="section-lead" data-en="The technologies we lean on across mobile, web and systems. Tap one." data-tr="Mobil, web ve sistem geliştirme boyunca güvendiğimiz teknolojiler. Birine dokun.">The technologies we lean on across mobile, web and systems. Tap one.</p>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-item reveal pop"><img src="https://cdn.simpleicons.org/flutter" alt="" /><span class="tech-name">Flutter</span></div>
+          <div class="tech-item reveal pop" data-delay="40"><img src="https://cdn.simpleicons.org/dart" alt="" /><span class="tech-name">Dart</span></div>
+          <div class="tech-item reveal pop" data-delay="80"><img src="https://cdn.simpleicons.org/react" alt="" /><span class="tech-name">React</span></div>
+          <div class="tech-item reveal pop" data-delay="120"><img src="https://cdn.simpleicons.org/typescript" alt="" /><span class="tech-name">TypeScript</span></div>
+          <div class="tech-item reveal pop" data-delay="160"><img src="https://cdn.simpleicons.org/go" alt="" /><span class="tech-name">Go</span></div>
+          <div class="tech-item reveal pop" data-delay="200"><img src="https://cdn.simpleicons.org/github" alt="" /><span class="tech-name">GitHub</span></div>
+          <div class="tech-item reveal pop"><img src="https://cdn.simpleicons.org/android" alt="" /><span class="tech-name">Android</span></div>
+          <div class="tech-item reveal pop" data-delay="40"><img src="https://cdn.simpleicons.org/apple" alt="" /><span class="tech-name">iOS</span></div>
+          <div class="tech-item reveal pop" data-delay="80"><img src="https://cdn.simpleicons.org/linux" alt="" /><span class="tech-name">Linux</span></div>
+          <div class="tech-item reveal pop" data-delay="120"><span class="text-logo">R</span><span class="tech-name">Riverpod</span></div>
+          <div class="tech-item reveal pop" data-delay="160"><img src="https://cdn.simpleicons.org/sqlite" alt="" /><span class="tech-name">SQLite</span></div>
+          <div class="tech-item reveal pop" data-delay="200"><img src="https://cdn.simpleicons.org/fastlane" alt="" /><span class="tech-name">Fastlane</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow" style="justify-content:center" data-en="Contact" data-tr="İletişim">Contact</span>
+          <h2 class="contact-title" data-en="Let's build together." data-tr="Birlikte çalışalım.">Let's build together.</h2>
+          <p class="contact-lead" data-en="Got an open-source idea, a contribution, or just want to say hi? Our door is always open." data-tr="Açık kaynak bir fikrin, bir katkı önerin ya da sadece merhaba demek mi istiyorsun? Kapımız her zaman açık.">Got an open-source idea, a contribution, or just want to say hi? Our door is always open.</p>
+          <a class="contact-email magnetic" href="mailto:info@devopen.io"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@devopen.io</a>
+          <div class="contact-actions">
+            <a class="btn btn-primary magnetic pop" href="mailto:info@devopen.io" data-en="Send email" data-tr="E-posta Gönder">Send email</a>
+            <a class="btn btn-ghost magnetic pop" href="https://github.com/DevOpen-io" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>GitHub Org</a>
+          </div>
+        </div>
+
+        <!-- ===== Founders — direct contact (real public handles only) ===== -->
+        <div class="contact-divider reveal" data-delay="60" aria-hidden="true">
+          <span data-en="or reach a founder directly" data-tr="ya da doğrudan bir kurucuya ulaş">or reach a founder directly</span>
+        </div>
+        <div class="founder-grid">
+          <article class="founder-card reveal pop">
+            <span class="founder-avatar-wrap"><img class="founder-avatar" src="https://avatars.githubusercontent.com/u/70534390?v=4" alt="Eren Gun" loading="lazy" /></span>
+            <div class="founder-id">
+              <div class="founder-name">Eren Gun</div>
+              <div class="founder-role" data-en="Mobile &amp; Backend" data-tr="Mobil &amp; Backend">Mobile &amp; Backend</div>
+            </div>
+            <div class="founder-links">
+              <a class="icon-link pop" href="https://github.com/erengun" target="_blank" rel="noopener" aria-label="Eren Gun on GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+              <a class="icon-link pop" href="https://linkedin.com/in/erengun" target="_blank" rel="noopener" aria-label="Eren Gun on LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+              <a class="icon-link pop" href="https://erengun.dev" target="_blank" rel="noopener" aria-label="Eren Gun website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg></a>
+            </div>
+          </article>
+
+          <article class="founder-card reveal pop" data-delay="80">
+            <span class="founder-avatar-wrap"><img class="founder-avatar" src="https://avatars.githubusercontent.com/u/93337596?v=4" alt="Z. Sena Doğan" loading="lazy" /></span>
+            <div class="founder-id">
+              <div class="founder-name">Z. Sena Doğan</div>
+              <div class="founder-role" data-en="UI/UX &amp; Mobile" data-tr="UI/UX &amp; Mobil">UI/UX &amp; Mobile</div>
+            </div>
+            <div class="founder-links">
+              <a class="icon-link pop" href="https://github.com/sena-dogan" target="_blank" rel="noopener" aria-label="Z. Sena Doğan on GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+              <a class="icon-link pop" href="https://linkedin.com/in/sena-dogan-dev" target="_blank" rel="noopener" aria-label="Z. Sena Doğan on LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.3c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21H9z"/></svg></a>
+            </div>
+          </article>
+
+          <article class="founder-card reveal pop" data-delay="160">
+            <span class="founder-avatar-wrap"><img class="founder-avatar" src="https://avatars.githubusercontent.com/u/56833887?v=4" alt="Talha Aksoy" loading="lazy" /></span>
+            <div class="founder-id">
+              <div class="founder-name">Talha Aksoy</div>
+              <div class="founder-role" data-en="Front-End" data-tr="Front-End">Front-End</div>
+            </div>
+            <div class="founder-links">
+              <a class="icon-link pop" href="https://github.com/talhaaksoy" target="_blank" rel="noopener" aria-label="Talha Aksoy on GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg></a>
+              <a class="icon-link pop" href="https://42saksoy.netlify.app" target="_blank" rel="noopener" aria-label="Talha Aksoy website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <div class="container">
+        <a href="#hero" class="brand" style="font-size:1rem">
+          <img class="brand-logo" src="./logo.jpeg" alt="DevOpen logo" style="width:26px;height:26px;border-radius:7px" />
+          Dev<span>Open</span>
+        </a>
+        <p>© <span id="year">2026</span> DevOpen · İstanbul · <span class="mit">MIT Licensed</span> · <span data-en="psst — try the Konami code, or click the logo" data-tr="psst — Konami kodunu dene ya da logoya tıkla">psst — try the Konami code, or click the logo</span></p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ===================== LIBRARIES (CDN) ===================== -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
