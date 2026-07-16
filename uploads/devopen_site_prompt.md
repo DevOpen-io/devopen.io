@@ -123,7 +123,7 @@ Site **GitHub Pages** üzerinde barındırılacak. Vanilla HTML/CSS/JS kullanıl
   - Sessiz saatler ve bildirim özeti modu
   - İngilizce & Türkçe tam lokalizasyon
 
-### SubZilla
+### Subara
 - **Repo:** https://github.com/DevOpen-io/SubZilla
 - **Demo:** https://subzilla.netlify.app
 - **Yıldız:** 3 | **Fork:** 2 | **Releases:** 31 (son: v1.0.0+73 — 11 Mart 2026)
@@ -182,7 +182,7 @@ Site **GitHub Pages** üzerinde barındırılacak. Vanilla HTML/CSS/JS kullanıl
 - Arka plan: Her kartın arkasında imleç pozisyonuna göre kayan gradient spotlight (JS `mousemove` + CSS custom property ile)
 
 ### Section 4: Projeler
-- Dondurma ve SubZilla için büyük showcase kartları
+- Dondurma ve Subara için büyük showcase kartları
 - Her kart:
   - Proje ismi + kısa açıklama
   - Tech stack logoları (SVG — Flutter logosu için `https://cdn.simpleicons.org/flutter`, Dart için `https://cdn.simpleicons.org/dart` vb.)
